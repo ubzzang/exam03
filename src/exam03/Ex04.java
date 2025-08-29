@@ -1,15 +1,34 @@
 package exam03;
 
+import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Ex04 {
-
-	static void test() {
-
-	}
-
+	static HashMap<String, String> word;
+	static Scanner sc;
+	
 	static void insert() {
-
+		while(true) {
+			System.out.println("영어 단어에 그만을 입력하면 입력을 종료합니다.");
+			System.out.print("영어 한글 입력>> ");
+			String w1=sc.next();
+			if(w1.equals("그만"))
+				break;
+			String w2=sc.next();
+			word.put(w1, w2);
+		}
+		System.out.println("영어단어 테스트를 종료합니다.");
+	}
+	
+	static void test() {
+		int answer[] = {1,2,3,4};
+		System.out.println("현재 " + word.size() + "개의 단어가 들어 있습니다. -1을 입력하면 테스트를 종료합니다.");
+		while(true) {
+			Object[] keys = word.keySet().toArray();
+			
+		}
 	}
 
 	public static void main(String[] args) {
