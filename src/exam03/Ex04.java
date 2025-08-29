@@ -26,7 +26,7 @@ public class Ex04 {
 		int answer[] = {1,2,3,4};
 		System.out.println("현재 " + word.size() + "개의 단어가 들어 있습니다. -1을 입력하면 테스트를 종료합니다.");
 		while(true) {
-			Object[] keys = word.keySet().toArray();
+			for
 			
 		}
 	}
