@@ -1,14 +1,16 @@
 package exam03;
 
-import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class StudentArray {
+public class StudentHash {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		ArrayList<Student> st = new ArrayList<>();
+		HashMap<String, Student> st = new HashMap<>();
 		System.out.println("학생이름, 학과, 학번, 학점평균을 입력하세요.");
 		
 		for (int i = 0; i < 5; i++) {
@@ -16,11 +18,17 @@ public class StudentArray {
 			String major = sc.next();
 			int sno = sc.nextInt();
 			double avg = sc.nextDouble();
-			st.add(new Student(name, major, sno, avg));
+			st.put(name, new Student(name, major, sno, avg));
 		}
 		
 		for (int i = 0; i < 5; i++) {
-			st.get(i).display();
+			Set<String> keys = st.keySet();
+			Iterator<String> it = keys.iterator();
+			
+			while(it.hasNext()) {
+				String key = it.next();
+				st.get(key).display();
+			}
 			System.out.println("========================");
 		}
 		
@@ -29,10 +37,12 @@ public class StudentArray {
 			String search = sc.next();
 			if(search.equals("그만"))
 				break;
-			for(int i=0; i<st.size(); i++) {
-				if(search.equals(st.get(i).name))
-					System.out.println(st.get(i).toString());
-			}
+			
+			boolean flag=st.containsKey(search);
+			if(flag)
+				System.out.println(st.get(search).toString());
+			else
+				System.out.print("찾는 이름이 없습니다.");
 		}
 		System.out.println("프로그램이 종료되었습니다.");
 	}

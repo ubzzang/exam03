@@ -16,7 +16,20 @@ public class Student {
 		this.avg = avg;
 	}
 
+	@Override
+	public String toString() {
+		return name + "\t" + major + "\t" + sno + "\t" + avg;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public void display() {
-		System.out.println("이름 : "+name+"\n"+"학과 : "+major+"\n"+"학번 : "+sno+"\n"+"학점 평균"+avg);
+		System.out.println("이름 : "+name+"\n"+"학과 : "+major+"\n"+"학번 : "+sno+"\n"+"학점 평균 : "+avg);
 	}
 }
